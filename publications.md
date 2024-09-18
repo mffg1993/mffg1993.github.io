@@ -7,8 +7,7 @@ title: Publications
 
 Below are my selected scientific publications. Each entry includes an image, the title (linked to the journal), and the abstract.
 
-## Publication 1
-![Publication Image](assets/images/publication1.jpg)
+## ![Publication Image](assets/images/publication1.jpg)
 [**Structuring Light: From Knots to Geometrical Optics**]([https://journalwebsite.com/publication1](https://ruor.uottawa.ca/items/52c7e55e-765c-469c-86d4-c253824a86b5))  
 _Abstract:_ Undoubtedly, light is one of the physical phenomena that has amazed humanity for millennia. In the past decades, rapid advances in technology have allowed us to study the
 hidden features of the electromagnetic field. Structured light – light beams whose intensity, phase profile, polarization, or frequency distribution has been tailored on demand – became
