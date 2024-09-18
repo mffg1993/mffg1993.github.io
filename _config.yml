@@ -1,4 +1,11 @@
 theme: minima
 title: Manuel Ferrer-Garcia
-description: I don't know what am I doing?
-
+description: 
+  Welcome to my personal website.
+  
+# Add links to navigation
+navbar:
+  - name: Home
+    link: /
+  - name: Publications
+    link: /publications.html
