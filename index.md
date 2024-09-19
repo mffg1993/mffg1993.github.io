@@ -3,4 +3,4 @@ layout: home
 title: "Home"
 ---
 
-In 2011, I commenced my studies at Wrocław University of Science and Technology, which greatly influenced my career for several years. Interestingly, I have a tendency to pursue endeavors that are outside my natural strengths. This may have been the primary motivation for me to choose Physics as my major, with a later specialization in Optics, which might seem like a joke to some, especially considering my high school background.
+Manuel Ferrer joined Professor Ebrahim Karimi’s group as a PhD student in Fall 2019. He got his Engineering Physics degree from the Instituto Tecnològico y de Estudios Superiores de Monterrey, Monterrey Campus (ITESM) in December 2016. In May 2019, he received his master’s degree in Nanotechnology with specialization in nanophotonics and quantum systems at ITESM, where he was awarded the Academic Excellence Full Scholarship for his studies. During this period, Manuel focused on generating and applying structured light for optical manipulation and telecommunications. His current research interests include beam shaping, quantum foundations and quantum computing.
