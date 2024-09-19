@@ -7,8 +7,4 @@ This repository contains the source code and content for my personal GitHub Page
 - A dedicated directory for some repositories that I build while doing research
 - Contact page
 
-
-A blog section with posts on various topics.
-A dedicated directory for my scientific publications, complete with images, links to journals, and abstracts.
-Custom layouts and styling to showcase my work and interests.
 Feel free to explore the site, fork the repository, or reach out with any questions or suggestions!
