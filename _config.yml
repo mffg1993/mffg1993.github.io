@@ -9,7 +9,7 @@ navbar:
     link: /
   - name: Publications
     link: /publications.html
-  - name: Interactive Tutorials!
+  - name: Jupyter Notebooks
     link: /notebooks.html
-  - name: Bicycle Builds!
+  - name: Blog
     link: /bikebuilds.html
