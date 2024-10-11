@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Quantum Mechanics"
+title: "Structured Light"
 ---
 
 #### Course Information
