@@ -1,0 +1,47 @@
+<style>
+/* 1.5 Line Spacing */
+.publication-list {
+  line-height: 1.5;
+}
+
+/* Small Filled Circle for Bullet Points */
+.publication-list li {
+  list-style-type: disc; /* Default small filled circle */
+  margin-bottom: 10px; /* Optional: Add spacing between items */
+}
+</style>
+
+<ul class="publication-list">
+  {% assign pub_list = site.data.citations | sort: "Year" | reverse %}
+
+  {% for citation in pub_list %}
+
+    {% comment %}
+    Generate a Google Scholar link if include_link is true
+    {% endcomment %}
+    {% if include.include_link %}
+      {% assign url = citation.Title | cgi_escape | prepend: "https://scholar.google.com/scholar?q=" %}
+      {% capture title_link %}<a href="{{ url }}"><em>{{citation.Title}}</em></a>{% endcapture %}
+    {% else %}
+      {% assign title_link = "<em>" | append: citation.Title | append: "</em>" %}
+    {% endif %}
+
+    {% comment %}
+    Format the citation based on the selected style
+    {% endcomment %}
+    <li>
+      {% if style == "mla" %}
+        {{ formatted_author_list | split: ";" | array_to_sentence_string }}. {{ title_link }}. <em>{{citation.Publication}}</em> ({{citation.Year}}).
+      {% elsif style == "apa" %}
+        {{ formatted_author_list | split: ";" | array_to_sentence_string: "&" }} ({{citation.Year}}). {{ title_link }}. <em>{{citation.Publication}}</em>.
+      {% elsif style == "chicago" %}
+        {{ formatted_author_list | split: ";" | array_to_sentence_string }}. {{ title_link }}. <em>{{citation.Publication}}</em>, {{citation.Year}}.
+      {% elsif style == "harvard" %}
+        {{ formatted_author_list | split: ";" | array_to_sentence_string }} ({{citation.Year}}), {{ title_link }}, <em>{{citation.Publication}}</em>.
+      {% elsif style == "vancouver" %}
+        {{ formatted_author_list | split: ";" | array_to_sentence_string }}. {{ title_link }}. <em>{{citation.Publication}}</em>;{{citation.Year}}.
+      {% endif %}
+    </li>
+
+  {% endfor %}
+</ul>
