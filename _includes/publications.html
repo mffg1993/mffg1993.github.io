@@ -1,3 +1,20 @@
+<style>
+/* 1.5 Line Spacing */
+.publication-list {
+  line-height: 1.5;
+}
+
+/* Small Filled Circle for Bullet Points */
+.publication-list li {
+  list-style-type: disc; /* Default small filled circle */
+  margin-bottom: 10px; /* Optional: Add spacing between items */
+}
+</style>
+
+<ul class="publication-list">
+  {% assign pub_list = site.data.citations | sort: "Year" | reverse %}
+
+
 {% comment %}
 Sort the publication list by year (descending order)
 {% endcomment %}
