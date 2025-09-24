@@ -1,4 +1,4 @@
 ---
-layout: research
+layout: people
 title: "Research"
 ---
