@@ -13,7 +13,7 @@ people:
 
 research:
 - {name: 'Embedded topological elements in Structured light', description: 'The rapid advancements in the manipulation and control of electromagnetic radiation have allowed researchers to explore solutions of Maxwell’s equations possessing rich topological features. Here, we aim to find new ways to find and engineer these features: from genrating populations of nontrivial polarization states to create singulat skeletons in structured fields.',image: 'assets/img/Polychromatic_Fig.png', url: 'primary-investigator'}
-- {name: 'Universal Unitary operations using light modulation', description: 'We aim to unveil the subtleties behind the desing of general unitary operation elements by using a mix of local and non local optical elements.',image: 'assets/img/primary-investigator.jpg', url: 'primary-investigator'}
+- {name: 'Universal Unitary operations using light modulation', description: 'We aim to unveil the subtleties behind the desing of general unitary operation elements by using a mix of local and non local optical elements.',image: 'assets/img/unitary.png', url: 'primary-investigator'}
 
 
 courses:
