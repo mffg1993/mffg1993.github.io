@@ -1,4 +1,4 @@
 ---
-layout: people
-title: "Favorite Repositories!"
+layout: research
+title: "Software"
 ---
