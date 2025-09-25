@@ -31,7 +31,7 @@ contacts:
 
 software:
 - {name: 'SLMpy: Generating Arbitrary Optical Beams and more', description: 'This project provides a Python-based application for controlling multiple screens, supporting hologram generation and display. The tool is designed for scientific visualization, allowing users to generate and display Laguerre-Gaussian and Hermite-Gaussian holograms, random noise patterns, and gradients across multiple monitors. A version with a GUI has also been added for the sake of simplicity.',image: 'assets/img/slmpy.png', url: 'primary-investigator'}
-- {name: 'OpticsSetupsDictionary — Optics Figure Library for the Wolfram Language', description: 'Publication-ready optics diagrams built in the Wolfram Language (Mathematica): lenses, mirrors, beamsplitters, waveplates, apertures, gratings, detectors, and beam glyphs you can parametrize and assemble into full experimental setups.',image: 'assets/img/optdicto.png', url: 'primary-investigator'}
+- {name: 'OpticsSetupsDictionary — Optics Figure Library for the Wolfram Language', description: 'Publication-ready optics diagrams built in the Wolfram Language (Mathematica): lenses, mirrors, beamsplitters, waveplates, apertures, gratings, detectors, and beam glyphs you can parametrize and assemble into full experimental setups.',image: 'assets/img/optodicto.png', url: 'primary-investigator'}
 - {name: 'MHS2300A', description: 'A simple Python module to control the inexpensive MHS2300A signal generator.',image: 'assets/img/signal.png', url: 'primary-investigator'}
 
 
