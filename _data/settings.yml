@@ -2,7 +2,7 @@ menu:
 - {name: 'Publications', url: '/publications'}
 - {name: 'Research', url: '/research'}
 - {name: 'Educational Resources', url: '/courses'}
-- {name: 'Software(?)', url: '/repo_fav'}
+- {name: 'Software', url: '/repo_fav'}
 - {name: 'CV', url: '/cv'}
 - {name: 'Contact', url: '/contact'}
 
