@@ -43,5 +43,16 @@ software:
    image: 'assets/img/signal.png', 
    repo: 'https://github.com/mffg1993/MHS2300A'}
 
+   software:
+- {name: 'Vector Beam Christmas',
+   description: 'Wrapping paper designed using data from research!',
+   image: 'assets/img/slmpy.png', 
+   file: 'PUTFILEHERE'}
+- {name: 'No Flux Given Mug design',
+   description: 'Electromagnetic-themed Mug design based on illustrations made in Wolfram Mathematica',
+   image: 'assets/img/slmpy.png', 
+   file: 'PUTFILEHERE'}
+
+
 
 
