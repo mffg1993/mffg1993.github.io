@@ -43,7 +43,7 @@ software:
    image: 'assets/img/signal.png', 
    repo: 'https://github.com/mffg1993/MHS2300A'}
 
-   software:
+   design:
 - {name: 'Vector Beam Christmas',
    description: 'Wrapping paper designed using data from research!',
    image: 'assets/img/slmpy.png', 
