@@ -1,0 +1,65 @@
+name: Update publications from Google Scholar
+
+on:
+  # First day of each month at 09:37 UTC.
+  schedule:
+    - cron: "37 9 1 * *"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-scholar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the website
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          # scholarly 1.7.11 is older, so Python 3.11 is the conservative choice.
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-scholar.txt
+
+      - name: Install Scholar updater requirements
+        continue-on-error: true
+        run: python -m pip install -r requirements-scholar.txt
+
+      - name: Attempt Google Scholar refresh
+        continue-on-error: true
+        env:
+          SCHOLAR_ID: "FzMu3LkAAAAJ"
+        run: python _scripts/update_scholar_publications.py
+
+      # This standard-library-only step still runs if Scholar was blocked.
+      # In that case, it uses the previous successful Scholar JSON unchanged.
+      - name: Merge reliable data with cached Scholar data
+        if: always()
+        run: python _scripts/merge_publications.py
+
+      - name: Commit actual metadata changes
+        if: always()
+        shell: bash
+        run: |
+          if git diff --quiet -- \
+            _data/publications_scholar.json \
+            _data/publications.json; then
+            echo "No Scholar publication changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            _data/publications_scholar.json \
+            _data/publications.json
+
+          git commit -m "chore: update Google Scholar publications"
+          git push
