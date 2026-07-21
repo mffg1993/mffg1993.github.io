@@ -25,6 +25,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+          cache-dependency-path: requirements-publications.txt
 
       - name: Install updater requirements
         run: python -m pip install -r requirements-publications.txt
