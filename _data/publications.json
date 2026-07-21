@@ -1,9 +1,173 @@
 {
-  "generated_at": null,
+  "generated_at": "2026-07-21T18:31:52+00:00",
   "orcid": "0000-0003-1358-2049",
   "orcid_url": "https://orcid.org/0000-0003-1358-2049",
   "author_name": "Manuel F. Ferrer-Garcia",
   "openalex_author_id": null,
-  "sources": [],
-  "works": []
+  "sources": [
+    "Crossref"
+  ],
+  "works": [
+    {
+      "title": "Topological transitions of the generalized Pancharatnam-Berry phase",
+      "authors": [
+        {
+          "name": "Manuel F. Ferrer-Garcia",
+          "orcid": "0000-0003-1358-2049",
+          "is_me": true
+        },
+        {
+          "name": "Kyrylo Snizhko",
+          "orcid": "0000-0002-7236-6779",
+          "is_me": false
+        },
+        {
+          "name": "Alessio D’Errico",
+          "orcid": "0000-0002-6964-4328",
+          "is_me": false
+        },
+        {
+          "name": "Alessandro Romito",
+          "orcid": "0000-0003-3082-6279",
+          "is_me": false
+        },
+        {
+          "name": "Yuval Gefen",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Ebrahim Karimi",
+          "orcid": "0000-0002-8168-7304",
+          "is_me": false
+        }
+      ],
+      "venue": "Science Advances",
+      "year": 2023,
+      "publication_date": "2023-11-24",
+      "type": "journal-article",
+      "doi": "10.1126/sciadv.adg6810",
+      "url": "https://doi.org/10.1126/sciadv.adg6810",
+      "open_access_url": null,
+      "volume": "9",
+      "issue": "47",
+      "pages": "eadg6810",
+      "cited_by_count": 11,
+      "citation_source": "Crossref",
+      "data_source": "Crossref",
+      "openalex_id": null
+    },
+    {
+      "title": "Polychromatic electric field knots",
+      "authors": [
+        {
+          "name": "Manuel F. Ferrer-Garcia",
+          "orcid": "0000-0003-1358-2049",
+          "is_me": true
+        },
+        {
+          "name": "Alessio D'Errico",
+          "orcid": "0000-0002-6964-4328",
+          "is_me": false
+        },
+        {
+          "name": "Hugo Larocque",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Alicia Sit",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Ebrahim Karimi",
+          "orcid": "0000-0002-8168-7304",
+          "is_me": false
+        }
+      ],
+      "venue": "Physical Review Research",
+      "year": 2021,
+      "publication_date": "2021-09-08",
+      "type": "journal-article",
+      "doi": "10.1103/physrevresearch.3.033226",
+      "url": "https://doi.org/10.1103/physrevresearch.3.033226",
+      "open_access_url": null,
+      "volume": "3",
+      "issue": "3",
+      "pages": "033226",
+      "cited_by_count": 22,
+      "citation_source": "Crossref",
+      "data_source": "Crossref",
+      "openalex_id": null
+    },
+    {
+      "title": "Theoretical analysis on spatially structured beam induced mass transport in azo-polymer films",
+      "authors": [
+        {
+          "name": "Manuel F. Ferrer-Garcia",
+          "orcid": "0000-0003-1358-2049",
+          "is_me": true
+        },
+        {
+          "name": "Yousef Alvandi",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Yingwen Zhang",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Ebrahim Karimi",
+          "orcid": "0000-0002-8168-7304",
+          "is_me": false
+        }
+      ],
+      "venue": "Optics Express",
+      "year": 2020,
+      "publication_date": "2020-06-22",
+      "type": "journal-article",
+      "doi": "10.1364/oe.395054",
+      "url": "https://doi.org/10.1364/oe.395054",
+      "open_access_url": null,
+      "volume": "28",
+      "issue": "14",
+      "pages": "19954",
+      "cited_by_count": 4,
+      "citation_source": "Crossref",
+      "data_source": "Crossref",
+      "openalex_id": null
+    },
+    {
+      "title": "Newtonian orbits of nanoparticles interacting with structured light beams",
+      "authors": [
+        {
+          "name": "Manuel F Ferrer-Garcia",
+          "orcid": "0000-0003-1358-2049",
+          "is_me": true
+        },
+        {
+          "name": "Dorilian Lopez-Mago",
+          "orcid": "0000-0002-7213-4222",
+          "is_me": false
+        }
+      ],
+      "venue": "Journal of Optics",
+      "year": 2019,
+      "publication_date": "2019-11-05",
+      "type": "journal-article",
+      "doi": "10.1088/2040-8986/ab4f9a",
+      "url": "https://doi.org/10.1088/2040-8986/ab4f9a",
+      "open_access_url": null,
+      "volume": "21",
+      "issue": "12",
+      "pages": "125403",
+      "cited_by_count": 1,
+      "citation_source": "Crossref",
+      "data_source": "Crossref",
+      "openalex_id": null
+    }
+  ]
 }
