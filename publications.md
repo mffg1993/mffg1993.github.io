@@ -1,4 +1,5 @@
 ---
 layout: publications
-title: "Publications"
+title: Publications
+permalink: /publications/
 ---
