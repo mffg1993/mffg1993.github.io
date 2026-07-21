@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
-Update the Jekyll publication database for Manuel F. Ferrer-Garcia.
+Update the reliable Jekyll publication cache for Manuel F. Ferrer-Garcia.
 
 Primary source:
-    Crossref, filtered using the author's ORCID iD. This works without an API key.
+    Crossref, filtered using the author's ORCID iD.
 
 Optional enrichment:
-    OpenAlex, when the OPENALEX_API_KEY environment variable is available.
-    OpenAlex generally provides broader coverage, open-access links, and citation
-    counts, but its current API requires a free API key.
+    OpenAlex, when OPENALEX_API_KEY is available.
 
 Output:
-    _data/publications.json
+    _data/publications_regular.json
+
+The separate merge_publications.py script combines this reliable cache with
+the last successful Google Scholar cache and writes _data/publications.json.
 """
 
 from __future__ import annotations
@@ -34,12 +35,9 @@ ORCID_ID = os.getenv("ORCID_ID", "0000-0003-1358-2049").strip()
 OPENALEX_API_KEY = os.getenv("OPENALEX_API_KEY", "").strip()
 CROSSREF_MAILTO = os.getenv("CROSSREF_MAILTO", "").strip()
 
-OUTPUT_PATH = Path("_data/publications.json")
+OUTPUT_PATH = Path("_data/publications_regular.json")
 REQUEST_TIMEOUT = 30
 MAX_ATTEMPTS = 4
-
-# OpenAlex document types that normally should not appear on an academic
-# publication page. Add more types here later if needed.
 EXCLUDED_OPENALEX_TYPES = {"paratext"}
 
 
@@ -49,12 +47,11 @@ def request_json(
     params: dict[str, Any] | None = None,
     headers: dict[str, str] | None = None,
 ) -> dict[str, Any]:
-    """Request JSON with a small exponential-backoff retry policy."""
     request_headers = {
         "Accept": "application/json",
         "User-Agent": (
             "mffg1993.github.io-publication-updater/"
-            "1.0 (https://github.com/mffg1993/mffg1993.github.io)"
+            "2.0 (https://github.com/mffg1993/mffg1993.github.io)"
         ),
     }
     if headers:
@@ -95,7 +92,6 @@ def request_json(
 
 
 def normalize_orcid(value: str | None) -> str:
-    """Return only the four ORCID number groups."""
     if not value:
         return ""
     match = re.search(r"\d{4}-\d{4}-\d{4}-[\dX]{4}", value, flags=re.I)
@@ -103,19 +99,21 @@ def normalize_orcid(value: str | None) -> str:
 
 
 def normalize_doi(value: str | None) -> str:
-    """Return a bare DOI without a doi.org prefix."""
     if not value:
         return ""
-    doi = value.strip()
+    doi = str(value).strip()
     doi = re.sub(r"^https?://(?:dx\.)?doi\.org/", "", doi, flags=re.I)
     doi = re.sub(r"^doi:\s*", "", doi, flags=re.I)
-    return doi.strip()
+    return doi.rstrip(".,;").strip()
 
 
 def normalize_title(value: str) -> str:
-    """Normalize a title for cross-database duplicate detection."""
-    value = unicodedata.normalize("NFKD", value)
-    value = "".join(character for character in value if not unicodedata.combining(character))
+    value = unicodedata.normalize("NFKD", str(value or ""))
+    value = "".join(
+        character
+        for character in value
+        if not unicodedata.combining(character)
+    )
     value = value.casefold()
     value = re.sub(r"<[^>]+>", " ", value)
     value = re.sub(r"[^a-z0-9]+", " ", value)
@@ -130,11 +128,6 @@ def first_nonempty(values: list[Any], default: Any = "") -> Any:
 
 
 def date_parts_to_iso(date_parts: Any) -> tuple[str, int | None]:
-    """
-    Convert Crossref date-parts to an ISO-like string and year.
-
-    Crossref uses forms such as [[2023, 11, 24]].
-    """
     try:
         parts = date_parts[0]
         year = int(parts[0])
@@ -151,11 +144,11 @@ def crossref_authors(item: dict[str, Any]) -> list[dict[str, Any]]:
     for author in item.get("author", []):
         name = " ".join(
             part.strip()
-            for part in [author.get("given", ""), author.get("family", "")]
+            for part in (author.get("given", ""), author.get("family", ""))
             if part and part.strip()
         )
         if not name:
-            name = author.get("name", "").strip()
+            name = str(author.get("name") or "").strip()
         if not name:
             continue
 
@@ -172,7 +165,6 @@ def crossref_authors(item: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def fetch_crossref_works() -> list[dict[str, Any]]:
-    """Fetch Crossref works whose deposited metadata contains this ORCID iD."""
     params: dict[str, Any] = {
         "filter": f"orcid:{ORCID_ID}",
         "rows": 1000,
@@ -184,12 +176,11 @@ def fetch_crossref_works() -> list[dict[str, Any]]:
 
     data = request_json("https://api.crossref.org/works", params=params)
     items = data.get("message", {}).get("items", [])
-
     works: list[dict[str, Any]] = []
 
     for item in items:
         titles = item.get("title") or []
-        title = titles[0].strip() if titles else ""
+        title = str(titles[0]).strip() if titles else ""
         if not title:
             continue
 
@@ -203,17 +194,15 @@ def fetch_crossref_works() -> list[dict[str, Any]]:
             ],
             {},
         )
-        publication_date, year = date_parts_to_iso(date_object.get("date-parts", []))
+        publication_date, year = date_parts_to_iso(
+            date_object.get("date-parts", [])
+        )
 
         doi = normalize_doi(item.get("DOI"))
         container_titles = item.get("container-title") or []
-        venue = container_titles[0].strip() if container_titles else ""
-
+        venue = str(container_titles[0]).strip() if container_titles else ""
         pages = first_nonempty(
-            [
-                item.get("page", ""),
-                item.get("article-number", ""),
-            ]
+            [item.get("page", ""), item.get("article-number", "")]
         )
 
         works.append(
@@ -225,14 +214,21 @@ def fetch_crossref_works() -> list[dict[str, Any]]:
                 "publication_date": publication_date,
                 "type": item.get("type", ""),
                 "doi": doi or None,
-                "url": f"https://doi.org/{quote(doi, safe='/()')}" if doi else item.get("URL"),
+                "url": (
+                    f"https://doi.org/{quote(doi, safe='/()')}"
+                    if doi
+                    else item.get("URL")
+                ),
                 "open_access_url": None,
                 "volume": item.get("volume") or None,
                 "issue": item.get("issue") or None,
                 "pages": pages or None,
-                "cited_by_count": int(item.get("is-referenced-by-count", 0) or 0),
+                "cited_by_count": int(
+                    item.get("is-referenced-by-count", 0) or 0
+                ),
                 "citation_source": "Crossref",
                 "data_source": "Crossref",
+                "data_sources": ["Crossref"],
                 "openalex_id": None,
             }
         )
@@ -246,7 +242,7 @@ def openalex_authors(item: dict[str, Any]) -> list[dict[str, Any]]:
 
     for authorship in item.get("authorships", []):
         author = authorship.get("author") or {}
-        name = (author.get("display_name") or "").strip()
+        name = str(author.get("display_name") or "").strip()
         if not name:
             continue
 
@@ -262,7 +258,10 @@ def openalex_authors(item: dict[str, Any]) -> list[dict[str, Any]]:
     return authors
 
 
-def choose_openalex_url(item: dict[str, Any], doi: str) -> tuple[str | None, str | None]:
+def choose_openalex_url(
+    item: dict[str, Any],
+    doi: str,
+) -> tuple[str | None, str | None]:
     best_oa = item.get("best_oa_location") or {}
     primary = item.get("primary_location") or {}
     open_access = item.get("open_access") or {}
@@ -292,27 +291,19 @@ def choose_openalex_url(item: dict[str, Any], doi: str) -> tuple[str | None, str
 
 
 def fetch_openalex_works() -> tuple[list[dict[str, Any]], dict[str, Any] | None]:
-    """
-    Fetch OpenAlex works.
-
-    This step is optional because the current OpenAlex API requires a free API key.
-    """
     if not OPENALEX_API_KEY:
         print(
-            "OPENALEX_API_KEY is not set. Continuing with Crossref only. "
-            "Add the key as a GitHub Actions secret for broader coverage."
+            "OPENALEX_API_KEY is not set. Continuing with Crossref only."
         )
         return [], None
 
     encoded_orcid = quote(f"https://orcid.org/{ORCID_ID}", safe="")
-    author_url = f"https://api.openalex.org/authors/{encoded_orcid}"
     author = request_json(
-        author_url,
+        f"https://api.openalex.org/authors/{encoded_orcid}",
         params={"api_key": OPENALEX_API_KEY},
     )
 
-    full_author_id = author.get("id", "")
-    author_id = full_author_id.rsplit("/", 1)[-1]
+    author_id = str(author.get("id") or "").rsplit("/", 1)[-1]
     if not author_id:
         raise RuntimeError(f"OpenAlex could not resolve ORCID {ORCID_ID}.")
 
@@ -337,7 +328,9 @@ def fetch_openalex_works() -> tuple[list[dict[str, Any]], dict[str, Any] | None]
             if item.get("type") in EXCLUDED_OPENALEX_TYPES:
                 continue
 
-            title = (item.get("display_name") or item.get("title") or "").strip()
+            title = str(
+                item.get("display_name") or item.get("title") or ""
+            ).strip()
             if not title:
                 continue
 
@@ -347,7 +340,7 @@ def fetch_openalex_works() -> tuple[list[dict[str, Any]], dict[str, Any] | None]
 
             primary_location = item.get("primary_location") or {}
             source = primary_location.get("source") or {}
-            venue = (source.get("display_name") or "").strip()
+            venue = str(source.get("display_name") or "").strip()
 
             biblio = item.get("biblio") or {}
             first_page = biblio.get("first_page")
@@ -375,6 +368,7 @@ def fetch_openalex_works() -> tuple[list[dict[str, Any]], dict[str, Any] | None]
                     "cited_by_count": int(item.get("cited_by_count", 0) or 0),
                     "citation_source": "OpenAlex",
                     "data_source": "OpenAlex",
+                    "data_sources": ["OpenAlex"],
                     "openalex_id": item.get("id"),
                 }
             )
@@ -392,84 +386,80 @@ def work_key(work: dict[str, Any]) -> str:
     return f"title:{normalize_title(work.get('title', ''))}"
 
 
-def merge_works(
+def merge_regular_sources(
     crossref_works: list[dict[str, Any]],
     openalex_works: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
-    """
-    Merge records, preferring OpenAlex metadata while retaining useful
-    Crossref values when OpenAlex leaves a field empty.
-    """
     merged: dict[str, dict[str, Any]] = {}
 
     for work in crossref_works:
         merged[work_key(work)] = work
 
-    for openalex_work in openalex_works:
-        key = work_key(openalex_work)
+    for incoming in openalex_works:
+        key = work_key(incoming)
         existing = merged.get(key)
 
         if not existing:
-            merged[key] = openalex_work
+            merged[key] = incoming
             continue
 
-        combined = existing.copy()
-        for field, value in openalex_work.items():
+        combined = dict(existing)
+        for field, value in incoming.items():
             if value not in (None, "", [], {}):
                 combined[field] = value
 
-        # Preserve an OA URL from either source if one is available.
         combined["open_access_url"] = first_nonempty(
             [
-                openalex_work.get("open_access_url"),
+                incoming.get("open_access_url"),
                 existing.get("open_access_url"),
             ],
             None,
+        )
+        combined["data_sources"] = list(
+            dict.fromkeys(
+                [
+                    *existing.get("data_sources", ["Crossref"]),
+                    *incoming.get("data_sources", ["OpenAlex"]),
+                ]
+            )
         )
         merged[key] = combined
 
     works = list(merged.values())
 
-    # Remove malformed records and ensure consistent scalar values.
-    cleaned: list[dict[str, Any]] = []
     for work in works:
-        if not work.get("title"):
-            continue
         if not work.get("year"):
-            # Keep undated works at the bottom rather than discarding them.
             work["year"] = "Undated"
-        cleaned.append(work)
 
     def sort_key(work: dict[str, Any]) -> tuple[int, str, str]:
         year = work.get("year")
         numeric_year = int(year) if str(year).isdigit() else 0
         return (
             numeric_year,
-            work.get("publication_date") or "",
+            str(work.get("publication_date") or ""),
             normalize_title(work.get("title") or ""),
         )
 
-    cleaned.sort(key=sort_key, reverse=True)
-    return cleaned
+    works.sort(key=sort_key, reverse=True)
+    return works
+
+
+def comparable_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    return {
+        key: value
+        for key, value in payload.items()
+        if key != "generated_at"
+    }
 
 
 def write_output(payload: dict[str, Any]) -> bool:
-    """
-    Write only when publication metadata has changed.
-
-    This avoids creating a meaningless scheduled commit merely because the
-    generated_at timestamp changed.
-    """
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     if OUTPUT_PATH.exists():
         try:
             old_payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
-            old_comparable = {key: value for key, value in old_payload.items() if key != "generated_at"}
-            new_comparable = {key: value for key, value in payload.items() if key != "generated_at"}
-
-            if old_comparable == new_comparable:
-                print("Publication data has not changed; no file was rewritten.")
+            if comparable_payload(old_payload) == comparable_payload(payload):
+                print("Reliable publication data has not changed.")
                 return False
         except (json.JSONDecodeError, OSError):
             pass
@@ -483,14 +473,18 @@ def write_output(payload: dict[str, Any]) -> bool:
 
 
 def main() -> int:
-    if not re.fullmatch(r"\d{4}-\d{4}-\d{4}-[\dX]{4}", ORCID_ID, flags=re.I):
+    if not re.fullmatch(
+        r"\d{4}-\d{4}-\d{4}-[\dX]{4}",
+        ORCID_ID,
+        flags=re.I,
+    ):
         print(f"Invalid ORCID iD: {ORCID_ID}", file=sys.stderr)
         return 2
 
     try:
         crossref_works = fetch_crossref_works()
         openalex_works, openalex_author = fetch_openalex_works()
-        works = merge_works(crossref_works, openalex_works)
+        works = merge_regular_sources(crossref_works, openalex_works)
 
         author_name = None
         openalex_author_id = None
@@ -503,7 +497,9 @@ def main() -> int:
             sources.append("OpenAlex")
 
         payload = {
-            "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "generated_at": datetime.now(timezone.utc).isoformat(
+                timespec="seconds"
+            ),
             "orcid": ORCID_ID,
             "orcid_url": f"https://orcid.org/{ORCID_ID}",
             "author_name": author_name or "Manuel F. Ferrer-Garcia",
@@ -516,7 +512,7 @@ def main() -> int:
         return 0
 
     except Exception as exc:
-        print(f"Publication update failed: {exc}", file=sys.stderr)
+        print(f"Reliable publication update failed: {exc}", file=sys.stderr)
         return 1
 
 
