@@ -1,210 +1,197 @@
 <style>
-/* 1.5 Line Spacing */
-.publication-list {
-  line-height: 1.5;
-}
+  .publications-intro {
+    margin-bottom: 1.5rem;
+  }
 
-/* Small Filled Circle for Bullet Points */
-.publication-list li {
-  list-style-type: disc; /* Default small filled circle */
-  margin-bottom: 10px; /* Optional: Add spacing between items */
-}
+  .publications-meta {
+    color: #666;
+    font-size: 0.92rem;
+    margin-top: 0.35rem;
+  }
+
+  .publication-year {
+    border-bottom: 1px solid #e5e5e5;
+    margin: 2rem 0 0.75rem;
+    padding-bottom: 0.3rem;
+  }
+
+  .publication-list {
+    margin-left: 1.2rem;
+    padding-left: 0.8rem;
+  }
+
+  .publication-item {
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    padding-left: 0.25rem;
+  }
+
+  .publication-title {
+    font-weight: 600;
+  }
+
+  .publication-authors,
+  .publication-venue {
+    display: block;
+    margin-top: 0.15rem;
+  }
+
+  .publication-links {
+    display: block;
+    margin-top: 0.35rem;
+  }
+
+  .publication-link {
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 0.78rem;
+    line-height: 1;
+    margin: 0.15rem 0.35rem 0.15rem 0;
+    padding: 0.32rem 0.45rem;
+    text-decoration: none;
+  }
+
+  .publication-link:hover {
+    text-decoration: none;
+  }
+
+  .publication-empty {
+    background: #f7f7f7;
+    border-left: 4px solid #bbb;
+    padding: 1rem;
+  }
 </style>
 
-<h2>List of Publications</h2>
-<p>Below is a collection of my research publications.</p>
+{% assign publication_data = site.data.publications %}
+{% assign publication_list = publication_data.works %}
 
-<ul class="publication-list">
-  {% assign pub_list = site.data.citations | sort: "Year" | reverse %}
-
-
-{% comment %}
-Sort the publication list by year (descending order)
-{% endcomment %}
-
-{% assign pub_list = site.data.citations | sort: "Year" | reverse %}
-{% assign style = include.style | downcase | default: "apa" %}
-{% assign include_link = include.link %}
-
-{% if include.venue %}
-  {% assign venues = include.venue | downcase | split: ";" %}
-{% endif %}
-
-{% if include.year %}
-  {% assign years = include.year | split: ";" %}
-{% endif %}
-
-{% if include.title_search %}
-  {% assign searchterms = include.title_search | downcase | split: ";" %}
-{% endif %}
-
-{% if include.venue_search %}
-  {% assign venue_searchterms = include.venue_search | downcase | split: ";" %}
-{% endif %}
-
-{% if include.author %}
-  {% assign authors = include.author | downcase | split: ";" %}
-{% endif %}
-
-{% assign counter = 0 %}
-
-
-<ol>
-{% for citation in pub_list %}
-  {% if include.venue %}
-    {% assign publication = citation.Publication | downcase %}
-    {% if venues contains publication %}
-      {% assign is_venue = true %}
-    {% else %}
-      {% assign is_venue = false %}
-    {% endif %}
+<section class="publications-section">
+  {% if include.limit %}
+    <h2>Selected publications</h2>
   {% else %}
-    {% assign is_venue = true %}
-  {% endif %}
-  
-  {% if include.year %}
-    {% if years contains citation.Year %}
-      {% assign is_year = true %}
-    {% else %}
-      {% assign is_year = false %}
-    {% endif %}
-  {% else %}
-    {% assign is_year = true %}
-  {% endif %}
-  
-  {% if include.title_search %}
-    {% assign title = citation.Title | downcase %}
-    {% assign is_search = false %}
-    {% for term in searchterms %}
-      {% if title contains term %}
-        {% assign is_search = true %}
-      {% endif %}
-    {% endfor %}
-  {% else %}
-    {% assign is_search = true %}
-  {% endif %}
-  
-  {% if include.venue_search %}
-    {% assign venue = citation.Publication | downcase %}
-    {% assign is_venue_search = false %}
-    {% for term in venue_searchterms %}
-      {% if venue contains term %}
-        {% assign is_venue_search = true %}
-      {% endif %}
-    {% endfor %}
-  {% else %}
-    {% assign is_venue_search = true %}
-  {% endif %}
-  
-  {% if include.author %}
-    {% capture citation_Authors %}
-      {% for element in citation %}
-        {% if forloop.first %}
-          {{ element[1] }}
-        {% endif %}
-      {% endfor %}
-    {% endcapture %}
-    {% assign author_list = citation_Authors | downcase %}
-    {% assign is_author = false %}
-    {% for author in authors %}
-      {% if author_list contains author %}
-        {% assign is_author = true %}
-      {% endif %}
-    {% endfor %}
-  {% else %}
-    {% assign is_author = true %}
+    <h2>Publications</h2>
   {% endif %}
 
-  {% if is_venue and is_year and is_search and is_author and is_venue_search %}
-    {% capture citation_Authors %}
-      {% for element in citation %}
-        {% if forloop.first %}
-          {{ element[1] }}
-        {% endif %}
-      {% endfor %}
-    {% endcapture %}
-  
-    {% assign size = citation_Authors | size | minus: 2 %}
-    {% assign pub_authors = citation_Authors | slice: 0, size | split: ";" %}
-
-
-    {% assign last_names = "" %}
-    {% assign first_names = "" %}
-    {% for name in pub_authors %}
-      {% assign first_last = name | split: "," %}
-      {% assign first_names = first_names | append: first_last[1] %}
-      {% assign last_names = last_names | append: first_last[0] %}
-      {% if forloop.last == false %}
-        {% assign last_names = last_names | append: ";" %}
-        {% assign first_names = first_names | append: ";" %}
-      {% endif %}
-    {% endfor %}
-    {% assign first_names = first_names | split: ";" %}
-    {% assign last_names = last_names | split: ";" %}
-
-    {% assign formatted_author_list = "" %}
-
-    {% if style == "mla" or style == "chicago" %}
-      {% for first_name in first_names %}
-        {% if forloop.first == true %} 
-          {% assign formatted_author_list = formatted_author_list | append: last_names[forloop.index0] | append: ", " | append: first_name | append: ";" %}
-        {% elsif forloop.first == true and forloop.last == true %}
-          {% assign formatted_author_list = formatted_author_list | append: last_names[forloop.index0] | append: ", " | append: first_name %}
-        {% elsif forloop.last == true %}
-          {% assign formatted_author_list = formatted_author_list | append: first_name | append: " " | append: last_names[forloop.index0] %}
-        {% else %}
-          {% assign formatted_author_list = formatted_author_list | append: first_name | append: " " | append: last_names[forloop.index0] | append: ";" %}
-        {% endif %}
-      {% endfor %}
-    {% elsif style == "apa" or style == "harvard" or style == "vancouver"%}
-      {% for first_name in first_names %}
-        {% assign first_initial = first_name | slice: 1 %}
-        {% assign formatted_author_list = formatted_author_list | append: last_names[forloop.index0] | append: ", " | append: first_initial %}
-        {% if style == "apa" or style == "harvard" %}
-          {% assign formatted_author_list = formatted_author_list | append: "." %}
-        {% endif %}
-        {% if forloop.last == false %}
-          {% assign formatted_author_list = formatted_author_list | append: ";" %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-    
-    {% if include_link==true %}
-      {% assign url = citation.Title | cgi_escape | prepend: "https://scholar.google.com/scholar?q=" %}
-      {% capture title_link %}<a href="{{ url }}">{{citation.Title}}</a>{% endcapture %}
-    {% else %}
-      {% assign title_link = citation.Title %}
-    {% endif %}
-    
-    {% if style == "mla" %}
-      <li>
-        {{ formatted_author_list | split: ";" | array_to_sentence_string }}. "{{ title_link }}." <em>{{citation.Publication}}</em> ({{citation.Year}}).
-      </li>
-    {% elsif style == "apa" %}  
-      <li>
-        {{ formatted_author_list | split: ";" | array_to_sentence_string: "&"}} ({{citation.Year}}). {{ title_link }}. <em>{{citation.Publication}}</em>.
-      </li>
-    {% elsif style == "chicago" %}
-      <li>
-        {{ formatted_author_list | split: ";" | array_to_sentence_string }}. "{{ title_link }}." <em>{{citation.Publication}}</em> ({{citation.Year}}).
-      </li>
-    {% elsif style == "harvard" %}
-      <li>
-        {{ formatted_author_list | split: ";" | array_to_sentence_string }}, {{citation.Year}}. {{ title_link }}. <em>{{citation.Publication}}</em>.
-      </li>
-    {% elsif style == "vancouver" %}
-      <li>
-        {{ formatted_author_list | split: ";" | join: ", " }}. {{ title_link }}. {{citation.Publication}}. {{citation.Year}}.
-      </li>
-    {% endif %}
-    
+  <div class="publications-intro">
     {% if include.limit %}
-      {% assign counter = counter | plus: 1 %}
-      {% if counter == include.limit %}
+      <p>Recent research publications.</p>
+    {% else %}
+      <p>
+        Publications are retrieved using
+        <a href="{{ publication_data.orcid_url }}">ORCID {{ publication_data.orcid }}</a>
+        and updated automatically.
+      </p>
+    {% endif %}
+
+    {% if publication_data.generated_at %}
+      <p class="publications-meta">
+        Last metadata update:
+        {{ publication_data.generated_at | date: "%B %-d, %Y" }}
+        {% if publication_data.sources and publication_data.sources.size > 0 %}
+          · Sources: {{ publication_data.sources | join: " and " }}
+        {% endif %}
+      </p>
+    {% endif %}
+  </div>
+
+  {% if publication_list and publication_list.size > 0 %}
+    {% assign previous_year = "" %}
+    {% assign shown = 0 %}
+
+    {% for publication in publication_list %}
+      {% if include.limit and shown >= include.limit %}
         {% break %}
       {% endif %}
-    {% endif %} 
-    
+
+      {% assign current_year = publication.year | append: "" %}
+
+      {% if current_year != previous_year %}
+        {% unless shown == 0 %}
+          </ol>
+        {% endunless %}
+
+        <h3 class="publication-year">{{ current_year }}</h3>
+        <ol class="publication-list">
+        {% assign previous_year = current_year %}
+      {% endif %}
+
+      <li class="publication-item">
+        {% if publication.url %}
+          <a class="publication-title" href="{{ publication.url }}">{{ publication.title }}</a>
+        {% else %}
+          <span class="publication-title">{{ publication.title }}</span>
+        {% endif %}
+
+        {% if publication.authors and publication.authors.size > 0 %}
+          <span class="publication-authors">
+            {% for author in publication.authors %}
+              {% if author.is_me %}
+                <strong>{{ author.name }}</strong>
+              {% else %}
+                {{ author.name }}
+              {% endif %}
+              {% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+          </span>
+        {% endif %}
+
+        <span class="publication-venue">
+          {% if publication.venue %}
+            <em>{{ publication.venue }}</em>
+          {% endif %}
+
+          {% if publication.volume %}
+            {% if publication.venue %}, {% endif %}{{ publication.volume }}
+          {% endif %}
+
+          {% if publication.issue %}
+            ({{ publication.issue }})
+          {% endif %}
+
+          {% if publication.pages %}
+            : {{ publication.pages }}
+          {% endif %}
+
+          {% if publication.year %}
+            {% if publication.venue or publication.volume or publication.issue or publication.pages %}, {% endif %}
+            {{ publication.year }}
+          {% endif %}
+        </span>
+
+        <span class="publication-links">
+          {% if publication.doi %}
+            <a class="publication-link" href="https://doi.org/{{ publication.doi }}">DOI</a>
+          {% endif %}
+
+          {% if publication.open_access_url %}
+            <a class="publication-link" href="{{ publication.open_access_url }}">Open access</a>
+          {% endif %}
+
+          {% if publication.cited_by_count and publication.cited_by_count > 0 %}
+            <span class="publication-link">
+              {{ publication.cited_by_count }}
+              {% if publication.cited_by_count == 1 %}citation{% else %}citations{% endif %}
+              · {{ publication.citation_source }}
+            </span>
+          {% endif %}
+        </span>
+      </li>
+
+      {% assign shown = shown | plus: 1 %}
+    {% endfor %}
+
+    {% if shown > 0 %}
+      </ol>
+    {% endif %}
+
+    {% if include.limit and publication_list.size > include.limit %}
+      <p><a href="{{ '/publications/' | relative_url }}">View all publications →</a></p>
+    {% endif %}
+  {% else %}
+    <div class="publication-empty">
+      The automatic publication list has not been generated yet.
+      Run the <strong>Update publications</strong> workflow from the GitHub Actions tab.
+    </div>
   {% endif %}
-{% endfor %}
-</ol>
+</section>
