@@ -1,0 +1,51 @@
+name: Merge verified BibTeX publications
+
+on:
+  push:
+    branches:
+      - gh-pages
+    paths:
+      - "_data/publications_verified.bib"
+      - "_scripts/merge_publications.py"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the website
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Merge publication sources
+        run: python _scripts/merge_publications.py
+
+      - name: Commit merged publication database
+        shell: bash
+        run: |
+          if git diff --quiet -- \
+            _data/publications.json \
+            _data/publications_audit.json; then
+            echo "No merged publication changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            _data/publications.json \
+            _data/publications_audit.json
+
+          git commit -m "chore: merge verified BibTeX publications"
+          git push

@@ -1,7 +1,6 @@
 name: Update publications
 
 on:
-  # Keep the current reliable weekly update.
   schedule:
     - cron: "17 9 * * 1"
 
@@ -35,7 +34,7 @@ jobs:
           CROSSREF_MAILTO: ${{ vars.CROSSREF_MAILTO }}
         run: python _scripts/update_publications.py
 
-      - name: Merge with the latest successful Scholar cache
+      - name: Merge regular, Scholar, and verified BibTeX records
         run: python _scripts/merge_publications.py
 
       - name: Commit actual metadata changes
@@ -43,7 +42,8 @@ jobs:
         run: |
           if git diff --quiet -- \
             _data/publications_regular.json \
-            _data/publications.json; then
+            _data/publications.json \
+            _data/publications_audit.json; then
             echo "No publication changes to commit."
             exit 0
           fi
@@ -54,7 +54,8 @@ jobs:
 
           git add \
             _data/publications_regular.json \
-            _data/publications.json
+            _data/publications.json \
+            _data/publications_audit.json
 
           git commit -m "chore: update publications"
           git push
