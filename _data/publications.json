@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T19:23:26+00:00",
+  "generated_at": "2026-08-03T12:38:06+00:00",
   "orcid": "0000-0003-1358-2049",
   "orcid_url": "https://orcid.org/0000-0003-1358-2049",
   "scholar_id": "FzMu3LkAAAAJ",
@@ -7,32 +7,257 @@
   "author_name": "Manuel F. Ferrer-Garcia",
   "openalex_author_id": null,
   "sources": [
-    "Crossref"
+    "Crossref",
+    "Verified BibTeX"
   ],
   "regular_generated_at": "2026-07-21T19:23:26+00:00",
   "scholar_generated_at": null,
+  "bibtex_file": "_data/publications_verified.bib",
   "works": [
+    {
+      "title": "All-optical turbulence mitigation for free-space quantum key distribution using stimulated parametric down-conversion",
+      "authors": [
+        {
+          "name": "Aarón A Aguilar-Cardoso",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Cheng Li",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Tobey JB Luck",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Manuel F Ferrer-Garcia",
+          "orcid": "0000-0003-1358-2049",
+          "is_me": true
+        },
+        {
+          "name": "Jeremy Upham",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Jeff S Lundeen",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Robert W Boyd",
+          "orcid": null,
+          "is_me": false
+        }
+      ],
+      "venue": "Optica",
+      "year": 2026,
+      "publication_date": "2026-01-01",
+      "type": "article",
+      "doi": null,
+      "url": null,
+      "open_access_url": null,
+      "volume": "13",
+      "issue": "3",
+      "pages": "386–394",
+      "publisher": "Optica Publishing Group",
+      "data_source": "Verified BibTeX",
+      "data_sources": [
+        "Verified BibTeX"
+      ],
+      "bibtex_key": "aguilar2026all",
+      "verified": true
+    },
+    {
+      "title": "Tailoring spatial modes produced by stimulated parametric down-conversion",
+      "authors": [
+        {
+          "name": "AA Aguilar-Cardoso",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "C Li",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "TJB Luck",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Manuel F Ferrer-Garcia",
+          "orcid": "0000-0003-1358-2049",
+          "is_me": true
+        },
+        {
+          "name": "J Upham",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "JS Lundeen",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "RW Boyd",
+          "orcid": null,
+          "is_me": false
+        }
+      ],
+      "venue": "Physical Review A",
+      "year": 2025,
+      "publication_date": "2025-01-01",
+      "type": "article",
+      "doi": null,
+      "url": null,
+      "open_access_url": null,
+      "volume": "112",
+      "issue": "4",
+      "pages": "043541",
+      "publisher": "APS",
+      "data_source": "Verified BibTeX",
+      "data_sources": [
+        "Verified BibTeX"
+      ],
+      "bibtex_key": "aguilar2025tailoring",
+      "verified": true
+    },
+    {
+      "title": "Fast adaptive optics for high-dimensional quantum communications in turbulent channels",
+      "authors": [
+        {
+          "name": "Lukas Scarfe",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Felix Hufnagel",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Manuel F Ferrer-Garcia",
+          "orcid": "0000-0003-1358-2049",
+          "is_me": true
+        },
+        {
+          "name": "Alessio D’Errico",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Khabat Heshami",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Ebrahim Karimi",
+          "orcid": null,
+          "is_me": false
+        }
+      ],
+      "venue": "Communications Physics",
+      "year": 2025,
+      "publication_date": "2025-01-01",
+      "type": "article",
+      "doi": null,
+      "url": null,
+      "open_access_url": null,
+      "volume": "8",
+      "issue": "1",
+      "pages": "79",
+      "publisher": "Nature Publishing Group UK London",
+      "data_source": "Verified BibTeX",
+      "data_sources": [
+        "Verified BibTeX"
+      ],
+      "bibtex_key": "scarfe2025fast",
+      "verified": true
+    },
+    {
+      "title": "Description of single-photon orbital angular momentum conjugation with stimulated parametric down-conversion",
+      "authors": [
+        {
+          "name": "Tobey JB Luck",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Aarón A Aguilar-Cardoso",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Cheng Li",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Manuel F Ferrer-Garcia",
+          "orcid": "0000-0003-1358-2049",
+          "is_me": true
+        },
+        {
+          "name": "Jeremy Upham",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Jeff S Lundeen",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Robert W Boyd",
+          "orcid": null,
+          "is_me": false
+        }
+      ],
+      "venue": "Journal of the Optical Society of America B",
+      "year": 2025,
+      "publication_date": "2025-01-01",
+      "type": "article",
+      "doi": null,
+      "url": null,
+      "open_access_url": null,
+      "volume": "43",
+      "issue": "3",
+      "pages": "A37–A45",
+      "publisher": "Optica Publishing Group",
+      "data_source": "Verified BibTeX",
+      "data_sources": [
+        "Verified BibTeX"
+      ],
+      "bibtex_key": "luck2025description",
+      "verified": true
+    },
     {
       "title": "Topological transitions of the generalized Pancharatnam-Berry phase",
       "authors": [
         {
-          "name": "Manuel F. Ferrer-Garcia",
+          "name": "Manuel F Ferrer-Garcia",
           "orcid": "0000-0003-1358-2049",
           "is_me": true
         },
         {
           "name": "Kyrylo Snizhko",
-          "orcid": "0000-0002-7236-6779",
+          "orcid": null,
           "is_me": false
         },
         {
           "name": "Alessio D’Errico",
-          "orcid": "0000-0002-6964-4328",
+          "orcid": null,
           "is_me": false
         },
         {
           "name": "Alessandro Romito",
-          "orcid": "0000-0003-3082-6279",
+          "orcid": null,
           "is_me": false
         },
         {
@@ -42,14 +267,14 @@
         },
         {
           "name": "Ebrahim Karimi",
-          "orcid": "0000-0002-8168-7304",
+          "orcid": null,
           "is_me": false
         }
       ],
-      "venue": "Science Advances",
+      "venue": "Science advances",
       "year": 2023,
-      "publication_date": "2023-11-24",
-      "type": "journal-article",
+      "publication_date": "2023-01-01",
+      "type": "article",
       "doi": "10.1126/sciadv.adg6810",
       "url": "https://doi.org/10.1126/sciadv.adg6810",
       "open_access_url": null,
@@ -60,21 +285,77 @@
       "citation_source": "Crossref",
       "data_source": "Crossref",
       "data_sources": [
-        "Crossref"
+        "Crossref",
+        "Verified BibTeX"
       ],
-      "openalex_id": null
+      "openalex_id": null,
+      "publisher": "American Association for the Advancement of Science",
+      "bibtex_key": "ferrer2023topological",
+      "verified": true
+    },
+    {
+      "title": "Secure communication using low dimensional topological elements",
+      "authors": [
+        {
+          "name": "Manuel F Ferrer-Garcia",
+          "orcid": "0000-0003-1358-2049",
+          "is_me": true
+        },
+        {
+          "name": "Avishy Carmi",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Alessio D'Errico",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Hugo Larocque",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Eliahu Cohen",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Ebrahim Karimi",
+          "orcid": null,
+          "is_me": false
+        }
+      ],
+      "venue": "arXiv preprint arXiv:2212.04350",
+      "year": 2022,
+      "publication_date": "2022-01-01",
+      "type": "article",
+      "doi": null,
+      "url": "https://arxiv.org/abs/2212.04350",
+      "open_access_url": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": null,
+      "data_source": "Verified BibTeX",
+      "data_sources": [
+        "Verified BibTeX"
+      ],
+      "bibtex_key": "ferrer2022secure",
+      "verified": true
     },
     {
       "title": "Polychromatic electric field knots",
       "authors": [
         {
-          "name": "Manuel F. Ferrer-Garcia",
+          "name": "Manuel F Ferrer-Garcia",
           "orcid": "0000-0003-1358-2049",
           "is_me": true
         },
         {
           "name": "Alessio D'Errico",
-          "orcid": "0000-0002-6964-4328",
+          "orcid": null,
           "is_me": false
         },
         {
@@ -89,14 +370,14 @@
         },
         {
           "name": "Ebrahim Karimi",
-          "orcid": "0000-0002-8168-7304",
+          "orcid": null,
           "is_me": false
         }
       ],
       "venue": "Physical Review Research",
       "year": 2021,
-      "publication_date": "2021-09-08",
-      "type": "journal-article",
+      "publication_date": "2021-01-01",
+      "type": "article",
       "doi": "10.1103/physrevresearch.3.033226",
       "url": "https://doi.org/10.1103/physrevresearch.3.033226",
       "open_access_url": null,
@@ -107,15 +388,19 @@
       "citation_source": "Crossref",
       "data_source": "Crossref",
       "data_sources": [
-        "Crossref"
+        "Crossref",
+        "Verified BibTeX"
       ],
-      "openalex_id": null
+      "openalex_id": null,
+      "publisher": "APS",
+      "bibtex_key": "ferrer2021polychromatic",
+      "verified": true
     },
     {
       "title": "Theoretical analysis on spatially structured beam induced mass transport in azo-polymer films",
       "authors": [
         {
-          "name": "Manuel F. Ferrer-Garcia",
+          "name": "Manuel F Ferrer-Garcia",
           "orcid": "0000-0003-1358-2049",
           "is_me": true
         },
@@ -131,27 +416,83 @@
         },
         {
           "name": "Ebrahim Karimi",
-          "orcid": "0000-0002-8168-7304",
+          "orcid": null,
           "is_me": false
         }
       ],
       "venue": "Optics Express",
       "year": 2020,
-      "publication_date": "2020-06-22",
-      "type": "journal-article",
+      "publication_date": "2020-01-01",
+      "type": "article",
       "doi": "10.1364/oe.395054",
       "url": "https://doi.org/10.1364/oe.395054",
       "open_access_url": null,
       "volume": "28",
       "issue": "14",
-      "pages": "19954",
+      "pages": "19954–19965",
       "cited_by_count": 4,
       "citation_source": "Crossref",
       "data_source": "Crossref",
       "data_sources": [
-        "Crossref"
+        "Crossref",
+        "Verified BibTeX"
       ],
-      "openalex_id": null
+      "openalex_id": null,
+      "publisher": "Optical Society of America",
+      "bibtex_key": "ferrer2020theoretical",
+      "verified": true
+    },
+    {
+      "title": "Optical framed knots as information carriers",
+      "authors": [
+        {
+          "name": "Hugo Larocque",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Alessio D’Errico",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Manuel F Ferrer-Garcia",
+          "orcid": "0000-0003-1358-2049",
+          "is_me": true
+        },
+        {
+          "name": "Avishy Carmi",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Eliahu Cohen",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Ebrahim Karimi",
+          "orcid": null,
+          "is_me": false
+        }
+      ],
+      "venue": "Nature communications",
+      "year": 2020,
+      "publication_date": "2020-01-01",
+      "type": "article",
+      "doi": null,
+      "url": null,
+      "open_access_url": null,
+      "volume": "11",
+      "issue": "1",
+      "pages": "5119",
+      "publisher": "Nature Publishing Group UK London",
+      "data_source": "Verified BibTeX",
+      "data_sources": [
+        "Verified BibTeX"
+      ],
+      "bibtex_key": "larocque2020optical",
+      "verified": true
     },
     {
       "title": "Newtonian orbits of nanoparticles interacting with structured light beams",
@@ -163,14 +504,14 @@
         },
         {
           "name": "Dorilian Lopez-Mago",
-          "orcid": "0000-0002-7213-4222",
+          "orcid": null,
           "is_me": false
         }
       ],
       "venue": "Journal of Optics",
       "year": 2019,
-      "publication_date": "2019-11-05",
-      "type": "journal-article",
+      "publication_date": "2019-01-01",
+      "type": "article",
       "doi": "10.1088/2040-8986/ab4f9a",
       "url": "https://doi.org/10.1088/2040-8986/ab4f9a",
       "open_access_url": null,
@@ -181,9 +522,102 @@
       "citation_source": "Crossref",
       "data_source": "Crossref",
       "data_sources": [
-        "Crossref"
+        "Crossref",
+        "Verified BibTeX"
       ],
-      "openalex_id": null
+      "openalex_id": null,
+      "publisher": "IOP Publishing",
+      "bibtex_key": "ferrer2019newtonian",
+      "verified": true
+    },
+    {
+      "title": "Generation of light beams with custom orbital angular momentum and tunable transverse intensity symmetries",
+      "authors": [
+        {
+          "name": "Job Mendoza-Hernández",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Mateusz Szatkowski",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Manuel F Ferrer-Garcia",
+          "orcid": "0000-0003-1358-2049",
+          "is_me": true
+        },
+        {
+          "name": "Julio C Gutiérrez-Vega",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Dorilian Lopez-Mago",
+          "orcid": null,
+          "is_me": false
+        }
+      ],
+      "venue": "Optics express",
+      "year": 2019,
+      "publication_date": "2019-01-01",
+      "type": "article",
+      "doi": null,
+      "url": null,
+      "open_access_url": null,
+      "volume": "27",
+      "issue": "18",
+      "pages": "26155–26162",
+      "publisher": "Optical Society of America",
+      "data_source": "Verified BibTeX",
+      "data_sources": [
+        "Verified BibTeX"
+      ],
+      "bibtex_key": "mendoza2019generation",
+      "verified": true
+    },
+    {
+      "title": "Cylindrical vector beam generator using a two-element interferometer",
+      "authors": [
+        {
+          "name": "Job Mendoza-Hernández",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Manuel F Ferrer-Garcia",
+          "orcid": "0000-0003-1358-2049",
+          "is_me": true
+        },
+        {
+          "name": "Jorge Arturo Rojas-Santana",
+          "orcid": null,
+          "is_me": false
+        },
+        {
+          "name": "Dorilian Lopez-Mago",
+          "orcid": null,
+          "is_me": false
+        }
+      ],
+      "venue": "Optics express",
+      "year": 2019,
+      "publication_date": "2019-01-01",
+      "type": "article",
+      "doi": null,
+      "url": null,
+      "open_access_url": null,
+      "volume": "27",
+      "issue": "22",
+      "pages": "31810–31819",
+      "publisher": "Optical Society of America",
+      "data_source": "Verified BibTeX",
+      "data_sources": [
+        "Verified BibTeX"
+      ],
+      "bibtex_key": "mendoza2019cylindrical",
+      "verified": true
     }
   ]
 }
