@@ -12,9 +12,17 @@ people:
 - {name: 'Graduate Student', title: 'Researcher', department: 'Physics & Astronomy', institution: 'Some University', institution_address: '1 Main Street, Canada', phone: '(000) 000-0000', email: 'hello@university.edu', office: 'Science Building 505', image: 'assets/img/graduate-student.jpg', url: 'graduate-student'}
 
 research:
-- {name: 'Embedded topological elements in Structured light', description: 'The rapid advancements in the manipulation and control of electromagnetic radiation have allowed researchers to explore solutions of Maxwell’s equations possessing rich topological features. Here, we aim to find new ways to find and engineer these features: from genrating populations of nontrivial polarization states to create singulat skeletons in structured fields.',image: 'assets/img/Polychromatic_Fig.png', url: 'primary-investigator'}
-- {name: 'Universal Unitary operations using light modulation', description: 'We aim to unveil the subtleties behind the desing of general unitary operation elements by using a mix of local and non local optical elements.',image: 'assets/img/unitary.png', url: 'primary-investigator'}
+- name: 'Turbulence Mitigation & Aberration Correction'
+  description: 'I study how atmospheric turbulence and optical aberrations affect structured light and high-dimensional quantum communication. My work has explored both adaptive-optics correction and phase-conjugation approaches based on stimulated parametric down-conversion, with the goal of improving the robustness of spatial-mode transmission through distorted optical channels.'
+  image: 'assets/img/Fast_Fig.png'
 
+- name: 'Topology in Structured Light'
+  description: 'I investigate how nontrivial topology can be encoded, revealed, and manipulated across different degrees of freedom of light. This includes knotted and linked structures in spatial, polarization, and polychromatic optical fields, together with singularities and other geometrical features that expose topology hidden within the full structure of an optical field.'
+  image: 'assets/img/Polychromatic_Fig.png'
+
+- name: 'Optical Transformations for Quantum Information'
+  description: 'I develop theoretical and experimental frameworks for implementing complex optical transformations for photonic quantum information processing. I am particularly interested in how different physical platforms—including volume gratings, multilayer photonic structures, and structured optical elements—can manipulate and couple spatial modes and polarization to realize high-dimensional transformations.'
+  image: 'assets/img/unitary.png'
 
 courses:
 - {name: 'Structured Light', url: 'quantum-mechanics'}
