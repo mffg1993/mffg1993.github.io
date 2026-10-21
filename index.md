@@ -5,7 +5,7 @@ title: "Home"
 
 I am a physicist working at the intersection of **structured light, physical optics, and quantum photonics**. My research focuses on understanding and engineering how the spatial and polarization structure of light evolves through optical systems, with the goal of developing compact devices capable of performing complex transformations for classical and quantum applications.
 
-My work spans **structured and topological light, generalized optical transformations, multilayer photonic devices, and high-dimensional quantum optics**. I am currently a Postdoctoral Fellow in **Prof. Jeff Lundeen's Quantum Photonics Group** at the University of Ottawa, where I investigate new approaches to controlling light through engineered photonic systems.
+My work spans **structured and topological light, generalized optical transformations, multilayer photonic devices, and high-dimensional quantum optics**, with a particular interest in controlling light through engineered photonic systems.
 
 ---
 
