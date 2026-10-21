@@ -1,4 +1,6 @@
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
-title: "Manuel Ferrer-Garcia, PhD" # the name of your site, e.g. ACME Corp.
+url: "https://mffg1993.github.io"
+baseurl: ""
+title: "Manuel Ferrer-Garcia, PhD"
 description: "Postdoctoral Fellow | University of Ottawa"
+seo_description: "Manuel Ferrer-Garcia is a physicist working in structured light, physical optics, and quantum photonics, with research on optical transformations, photonic devices, and high-dimensional quantum systems."
+author: "Manuel Ferrer-Garcia"
