@@ -3,15 +3,22 @@ layout: home
 title: "Home"
 ---
 
+# Manuel Ferrer-Garcia
 
-My research journey began in 2015 when I joined the Physical Optics Group led by Professor Dorilian López Mago at Tecnológico de Monterrey as part of my Engineering Physics degree. In 2019, I commenced my Master's in Nanotechnology under Professor López Mago's guidance, where I was honored with the Academic Excellence Full Scholarship. This opportunity allowed me to delve into structured light applications, focusing on optical forces and quantum communications. Subsequently, I joined Professor Ebrahim Karimi's Structured Quantum Optics group as a PhD student, exploring the boundaries of beam shaping and its potential use as a platform to investigate topological effects across various optics fields.
+**Postdoctoral Fellow in Quantum Photonics · University of Ottawa**
 
-In addition to my research, I have been actively involved in various extracurricular activities. As an undergraduate, I served as president of the Association of Engineering Physics and took part in initiatives teaching mathematics and physics to children of various ages. During my Master's, I led the Optica and SPIE student chapter at Tecnológico de Monterrey as president and vice president. My commitment to Optica and SPIE continued as a board member of the local chapter at the University of Ottawa.
+I am a physicist working at the intersection of **structured light, physical optics, and quantum photonics**. My research focuses on understanding and engineering how the spatial and polarization structure of light evolves through optical systems, with the goal of developing compact devices capable of performing complex transformations for classical and quantum applications.
 
-Currently, I hold a Postdoctoral position at the University of Ottawa, working under the mentorship of Professor Jeff Lundeen. My research here focuses on pushing the boundaries of physical optics and quantum information, drawing on the diverse techniques and methodologies I developed during my graduate studies. This role allows me to integrate my expertise in structured light, beam shaping, and quantum technologies to explore new avenues in optical systems, with potential applications in both fundamental science and emerging quantum technologies. At the same time, I continue my commitment to the Optica and SPIE chapter at the University of Ottawa as the chapter advisor. In addition, as part of my devotion to education, I am always developing tutorials such as the ones that they are hosted in my GitHub (and hopefully be able to be run online!) 
+My work spans **structured and topological light, generalized optical transformations, multilayer photonic devices, and high-dimensional quantum optics**. I am currently a Postdoctoral Fellow in **Prof. Jeff Lundeen's Quantum Photonics Group** at the University of Ottawa, where I investigate new approaches to controlling light through engineered photonic systems.
 
+[Research](/research/) · [Publications](/publications/) · [Software & Resources](/software/) · [CV](/cv/)
 
-Of course, life isn't all about research! In my free time, I enjoy cycling and cooking—two hobbies that provide balance and creativity outside the lab. I also contribute to my community by volunteering as the head of the Operations and Storefront Committee at a non-profit, volunteer-run bicycle shop. I'm always open to discovering new interests, so feel free to invite me to try something new!
+---
 
+## About Me
 
+My path in optics began at Tecnológico de Monterrey, where I studied Engineering Physics and later completed an MSc in Nanotechnology under Prof. Dorilian López-Mago. I subsequently moved to the University of Ottawa for my PhD in Physics with Prof. Ebrahim Karimi, where my research focused on structured light and the geometrical and topological properties of optical fields. I am now a Postdoctoral Fellow in Prof. Jeff Lundeen's Quantum Photonics Group, where I am expanding this work toward optical transformations, photonic devices, and quantum information.
 
+Alongside research, I enjoy developing open educational resources and computational tools for optics and supporting students entering experimental research. I have also been involved with Optica and SPIE student chapters throughout my academic career and currently serve as an advisor to the University of Ottawa chapter.
+
+Outside the lab, I enjoy cycling and cooking, and I volunteer with a community-run bicycle organization in Ottawa.
