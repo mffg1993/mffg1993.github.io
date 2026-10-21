@@ -1,0 +1,11 @@
+- category: 'Languages'
+  details: 'Spanish (native); English (IELTS 7.5)'
+
+- category: 'Scientific Computing'
+  details: 'Python, Wolfram Mathematica, MATLAB, LaTeX'
+
+- category: 'Experimental Optics'
+  details: 'Structured-light generation and characterization; spatial light modulators; digital holography; fiber optics and coupling; adaptive optics; femtosecond-laser fabrication; two-photon lithography'
+
+- category: 'Materials Characterization'
+  details: 'AFM, SEM, ellipsometry, X-ray diffraction'
