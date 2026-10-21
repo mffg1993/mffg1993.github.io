@@ -15,6 +15,19 @@ My work spans **structured and topological light, generalized optical transforma
 
 ---
 
+## Current Research
+
+My current work explores how structured optical fields can be transformed using compact photonic systems for classical and quantum applications. I am particularly interested in:
+
+- **Nonlocal multilayer optics and spaceplates** — understanding and engineering their momentum- and polarization-dependent response.
+- **Generalized optical transformations** — using volume gratings and related photonic platforms to implement high-dimensional unitary operations.
+- **Spin–orbit photonics** — coupling spatial modes and polarization through multilayer and patterned optical systems.
+- **Structured-light topology and metrology** — studying geometrical and topological properties of optical fields and their connections to measurement.
+
+[Explore my research →](/research/)
+
+---
+
 ## About Me
 
 My path in optics began at Tecnológico de Monterrey, where I studied Engineering Physics and later completed an MSc in Nanotechnology under Prof. Dorilian López-Mago. I subsequently moved to the University of Ottawa for my PhD in Physics with Prof. Ebrahim Karimi, where my research focused on structured light and the geometrical and topological properties of optical fields. I am now a Postdoctoral Fellow in Prof. Jeff Lundeen's Quantum Photonics Group, where I am expanding this work toward optical transformations, photonic devices, and quantum information.
