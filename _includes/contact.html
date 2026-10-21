@@ -1,20 +1,46 @@
 <div class="row g-5 mb-5">
-  <div>
-    <h3 class="fw-bold border-bottom pb-3 mb-5">Contact</h3>
-    {% for contact in site.data.settings.contacts %}
-    <div class="row g-5 mb-5">
-      <div class="col-md-6">
-        <h4>{{ contact.name }}</h4>
-        <p>{{ contact.title }} | {{ contact.department }}</p>
-        <p>{{ contact.institution }} | {{ contact.institution_address }}</p>
-        <p>Phone: {{ contact.phone }}</p>
-        <p>Email: {{ contact.email }}</p>
-        <p>Office: {{ contact.office }}</p>
+  <div class="col-md-12">
+    <h3 class="fw-bold border-bottom pb-3 mb-4">Contact</h3>
+
+    <p class="lead mb-4">
+      I welcome discussions about research collaborations, student projects, and opportunities involving structured light, quantum photonics, photonic devices, and optical transformations.
+    </p>
+
+    <div class="row g-5">
+      <div class="col-md-7">
+        <h4>Manuel Ferrer-Garcia, PhD</h4>
+        <p>
+          Postdoctoral Fellow<br>
+          Department of Physics<br>
+          University of Ottawa
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:mferrerg@uottawa.ca">mferrerg@uottawa.ca</a>
+        </p>
+
+        <p>
+          <strong>Office:</strong> Advanced Research Complex (ARC), Room 454
+        </p>
+
+        <h5 class="fw-bold mt-4">Professional profiles</h5>
+        <p>
+          <a href="https://scholar.google.com/citations?user=FzMu3LkAAAAJ&hl=en">Google Scholar</a>
+          &nbsp;·&nbsp;
+          <a href="https://orcid.org/0000-0003-1358-2049">ORCID</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/mffg1993">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://www.researchgate.net/profile/Manuel-Ferrer">ResearchGate</a>
+          &nbsp;·&nbsp;
+          <a href="https://linkedin.com/in/manuel-ferrer-78247962/">LinkedIn</a>
+        </p>
       </div>
-      <div class="col-md-6">
-        <img src="{{ site.github.url }}/{{ contact.image }}" alt="Contact" width="100%">
+
+      <div class="col-md-5">
+        <img src="{{ site.github.url }}/assets/img/contact.jpg" alt="Manuel Ferrer-Garcia" width="100%">
       </div>
     </div>
-    {% endfor %}
   </div>
 </div>
