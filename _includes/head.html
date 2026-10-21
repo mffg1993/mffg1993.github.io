@@ -1,7 +1,25 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
-  <title>{{ page.title }} | {{ site.title }}</title>
+
+  {% assign meta_description = page.description | default: site.seo_description | default: site.description %}
+  {% assign canonical_url = site.url | append: site.baseurl | append: page.url %}
+
+  <title>{% if page.title == "Home" %}{{ site.title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ meta_description | escape }}">
+  <meta name="author" content="{{ site.author | escape }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% if page.title == "Home" %}{{ site.title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}">
+  <meta property="og:description" content="{{ meta_description | escape }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{% if page.title == "Home" %}{{ site.title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{{ meta_description | escape }}">
+
   <link rel="stylesheet" href="{{ site.github.url }}/assets/libs/bootstrap/bootstrap.min.css">
   <script defer src="{{ site.github.url }}/assets/libs/fontawesome/all.min.js"></script>
   <link rel="stylesheet" href="{{ site.github.url }}/assets/css/main.css">
