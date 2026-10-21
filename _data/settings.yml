@@ -27,7 +27,7 @@ social:
 - {icon: 'linkedin', link: 'https://linkedin.com/in/manuel-ferrer-78247962/'}
 
 contacts:
-- {name: 'Dr. Manuel Ferrer Garcia', title: 'Postdoctoral Fellow', department: 'Physics', institution: 'University of Ottawa', institution_address: '25 Templeton, Ottawa, Canada', phone: '343 596-9277', email: 'mferrerg@uottawa.ca', office: 'ARC 454', image: 'assets/img/contact.jpg'}
+- {name: 'Manuel Ferrer-Garcia, PhD', title: 'Postdoctoral Fellow', department: 'Physics', institution: 'University of Ottawa', email: 'mferrerg@uottawa.ca', office: 'Advanced Research Complex (ARC), Room 454', image: 'assets/img/contact.jpg'}
 
 software:
 - {name: 'SLMpy: Generating Arbitrary Optical Beams and more',
