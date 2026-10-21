@@ -1,0 +1,11 @@
+- title: 'SLMpy'
+  description: 'Open-source, cross-platform Python application for controlling multiple displays and spatial light modulators in experimental photonics setups, including structured-light hologram generation and modular calibration workflows.'
+
+- title: 'Optics Diagram Kit for the Wolfram Language'
+  description: 'Open-source Wolfram Language toolkit for creating customizable 2D and 3D optical components and publication-ready experimental schematics.'
+
+- title: 'Scientific Plotting Guide — Mathematica and Python'
+  description: 'Open-source guide and reusable templates for clear, reproducible, publication-ready scientific figures in Python and Wolfram Mathematica.'
+
+- title: 'Python Lab Tutorials for Undergraduate Students'
+  description: 'Interactive Jupyter notebooks introducing scientific computing, data analysis, visualization, numerical methods, and common laboratory-data workflows.'
