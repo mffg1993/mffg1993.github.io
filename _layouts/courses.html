@@ -2,15 +2,50 @@
 layout: default
 ---
 
-
-
-<div class="row g-5 mb-5">
-  <div>
-    <h3 class="fw-bold border-bottom pb-3 mb-5">Notes</h3>
-    {% for course in site.data.settings.courses %}
-      <p><a href="{{ site.github.url }}/courses/{{ course.url}}">{{ course.name }}</a></p>
-    {% endfor %}
-  </div>
-</div>
-
 {{ content }}
+
+<h3 class="fw-bold border-bottom pb-3 mb-5">Teaching & Learning Resources</h3>
+
+{% assign categories = "Lab & Student Guides|Physics & Optics Notes|Tutorials & Notebooks" | split: "|" %}
+
+{% for category in categories %}
+  {% assign has_items = false %}
+  {% for item in site.data.settings.learning %}
+    {% if item.category == category %}
+      {% assign has_items = true %}
+    {% endif %}
+  {% endfor %}
+
+  {% if has_items %}
+    <h4 class="fw-bold mt-5 mb-4">{{ category }}</h4>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+      {% for item in site.data.settings.learning %}
+        {% if item.category == category %}
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                {% if item.type %}
+                  <p class="text-muted small mb-2">{{ item.type }}</p>
+                {% endif %}
+
+                <h5 class="card-title">
+                  <a href="{{ item.url }}" {% if item.external %}target="_blank" rel="noopener"{% endif %} class="text-decoration-none">
+                    {{ item.name }}
+                  </a>
+                </h5>
+
+                <div class="card-text mb-3">
+                  {{ item.description | markdownify }}
+                </div>
+
+                <div class="mt-auto">
+                  <a href="{{ item.url }}" {% if item.external %}target="_blank" rel="noopener"{% endif %}>Open resource →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endfor %}
