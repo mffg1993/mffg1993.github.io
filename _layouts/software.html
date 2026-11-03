@@ -2,57 +2,65 @@
 layout: default
 ---
 
-{{ content }}
+<h3 class="fw-bold border-bottom pb-3 mb-4">Open Resources & Tools</h3>
 
-<h3 class="fw-bold border-bottom pb-3 mb-5">Open Resources & Tools</h3>
+<div class="mb-5">
+  <p>
+    This page collects <strong>open resources and tools</strong> that I develop and maintain for research, teaching, and experimental work in optics. It includes software, interactive web tools, numerical resources, visualization utilities, reusable figures, notebooks, and educational material for students and researchers.
+  </p>
+</div>
 
 {% assign categories = "Experimental Tools|Visualization & Scientific Communication|Web Utilities" | split: "|" %}
 
 {% for category in categories %}
-  <h4 class="fw-bold mt-5 mb-4">{{ category }}</h4>
+  <section class="pt-4 pb-5 {% unless forloop.first %}border-top{% endunless %}">
+    <div class="mb-4">
+      <h4 class="fw-bold mb-2">{{ category }}</h4>
+    </div>
 
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
-  {% for project in site.data.settings.software %}
-    {% if project.category == category %}
-      <div class="col">
-        <div class="card h-100 shadow-sm">
-          {% if project.image %}
-            <a href="{{ project.repo | default: project.url }}" target="_blank" rel="noopener">
-              <img src="{{ site.github.url }}/{{ project.image }}" class="card-img-top" alt="{{ project.name }}" style="height: 200px; object-fit: cover;">
-            </a>
-          {% else %}
-            <a href="{{ project.repo | default: project.url }}" target="_blank" rel="noopener"
-               class="d-flex align-items-center justify-content-center text-decoration-none border-bottom"
-               style="height: 200px;">
-              <div class="text-center px-3">
-                <div class="fs-1 mb-2">⌘</div>
-                <span class="fw-bold">Open resource</span>
-              </div>
-            </a>
-          {% endif %}
-
-          <div class="card-body d-flex flex-column">
-            {% if project.type %}
-              <p class="text-muted small mb-2">{{ project.type }}</p>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for project in site.data.settings.software %}
+      {% if project.category == category %}
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            {% if project.image %}
+              <a href="{{ project.repo | default: project.url }}" target="_blank" rel="noopener">
+                <img src="{{ site.github.url }}/{{ project.image }}" class="card-img-top" alt="{{ project.name }}" style="height: 200px; object-fit: cover;">
+              </a>
+            {% else %}
+              <a href="{{ project.repo | default: project.url }}" target="_blank" rel="noopener"
+                 class="d-flex align-items-center justify-content-center text-decoration-none border-bottom"
+                 style="height: 200px;">
+                <div class="text-center px-3">
+                  <div class="fs-1 mb-2">⌘</div>
+                  <span class="fw-bold">Open resource</span>
+                </div>
+              </a>
             {% endif %}
 
-            <h5 class="card-title">
-              <a href="{{ project.repo | default: project.url }}" target="_blank" rel="noopener" class="text-decoration-none">
-                {{ project.name }}
-              </a>
-            </h5>
+            <div class="card-body d-flex flex-column">
+              {% if project.type %}
+                <p class="text-muted small mb-2">{{ project.type }}</p>
+              {% endif %}
 
-            <div class="card-text mb-3">
-              {{ project.description | markdownify }}
-            </div>
+              <h5 class="card-title">
+                <a href="{{ project.repo | default: project.url }}" target="_blank" rel="noopener" class="text-decoration-none">
+                  {{ project.name }}
+                </a>
+              </h5>
 
-            <div class="mt-auto">
-              <a href="{{ project.repo | default: project.url }}" target="_blank" rel="noopener">Open resource →</a>
+              <div class="card-text mb-3">
+                {{ project.description | markdownify }}
+              </div>
+
+              <div class="mt-auto pt-2">
+                <a href="{{ project.repo | default: project.url }}" target="_blank" rel="noopener">Open resource →</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    {% endif %}
-  {% endfor %}
-  </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+  </section>
 {% endfor %}
