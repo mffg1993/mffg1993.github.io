@@ -1,7 +1,7 @@
 menu:
 - {name: 'Publications', url: '/publications'}
 - {name: 'Research', url: '/research'}
-- {name: 'Notes', url: '/courses'}
+- {name: 'Learning', url: '/courses'}
 - {name: 'Resources', url: '/repo_fav'}
 - {name: 'CV', url: '/cv'}
 - {name: 'Contact', url: '/contact'}
@@ -24,10 +24,13 @@ research:
   description: 'I develop theoretical and experimental frameworks for implementing complex optical transformations for photonic quantum information processing. I am particularly interested in how different physical platforms—including volume gratings, multilayer photonic structures, and structured optical elements—can manipulate and couple spatial modes and polarization to realize high-dimensional transformations.'
   image: 'assets/img/unitary.png'
 
-courses:
-- {name: 'Structured Light', url: 'quantum-mechanics'}
-- {name: 'Quantum Mechanics', url: 'quantum-mechanics'}
-- {name: 'Stellar Structures', url: 'stellar-structures'}
+learning:
+- name: 'Guides for New Students'
+  description: 'Practical guides and notebooks for students starting in an optics laboratory, including introductory workflows for data analysis, experimental work, and day-to-day research tasks.'
+  type: 'Student onboarding & lab guide'
+  category: 'Lab & Student Guides'
+  url: 'https://github.com/mffg1993/GuidesNewStudents'
+  external: true
 
 social:
 - {icon: 'github', link: 'https://github.com/mffg1993'}
