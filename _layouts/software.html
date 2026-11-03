@@ -4,7 +4,7 @@ layout: default
 
 {{ content }}
 
-<h3 class="fw-bold border-bottom pb-3 mb-5">Software</h3>
+<h3 class="fw-bold border-bottom pb-3 mb-5">Open Tools & Resources</h3>
 {% for project in site.data.settings.software %}
 <div class="row g-5 mb-5">
   <div class="col-md-6">
@@ -18,12 +18,27 @@ layout: default
     <div style="text-align: justify; text-justify: inter-word; hyphens: auto;">
       {{ project.description | markdownify }}
     </div>
+
+    {% if project.type %}
+      <p class="text-muted mb-0"><small>{{ project.type }}</small></p>
+    {% endif %}
   </div>
 
   <div class="col-md-6">
-    <a href="{{ project.repo | default: project.url }}" target="_blank" rel="noopener">
-      <img src="{{ site.github.url }}/{{ project.image }}" alt="{{ project.name }}" width="100%">
-    </a>
+    {% if project.image %}
+      <a href="{{ project.repo | default: project.url }}" target="_blank" rel="noopener">
+        <img src="{{ site.github.url }}/{{ project.image }}" alt="{{ project.name }}" width="100%">
+      </a>
+    {% else %}
+      <a href="{{ project.repo | default: project.url }}" target="_blank" rel="noopener"
+         class="d-flex align-items-center justify-content-center border rounded text-decoration-none"
+         style="min-height: 220px;">
+        <div class="text-center p-4">
+          <div class="fs-1 mb-2">⌘</div>
+          <strong>Open interactive tool</strong>
+        </div>
+      </a>
+    {% endif %}
   </div>
 </div>
 {% endfor %}
