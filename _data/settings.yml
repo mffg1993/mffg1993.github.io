@@ -32,6 +32,13 @@ learning:
   url: 'https://github.com/mffg1993/GuidesNewStudents'
   external: true
 
+- name: 'Topics in Optics'
+  description: 'A growing collection of notes, visualizations, and interactive Jupyter notebooks covering a wide range of topics in optics.'
+  type: 'Notes, visualizations & notebooks'
+  category: 'Tutorials & Notebooks'
+  url: 'https://github.com/mffg1993/TopicsInOptics'
+  external: true
+
 social:
 - {icon: 'github', link: 'https://github.com/mffg1993'}
 - {icon: 'researchgate', link: 'https://www.researchgate.net/profile/Manuel-Ferrer'}
