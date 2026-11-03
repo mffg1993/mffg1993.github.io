@@ -41,45 +41,47 @@ software:
 - name: 'SLMpy'
   description: 'Python application for controlling multiple displays and spatial light modulators, with support for generating and displaying structured-light holograms and experimental patterns.'
   type: 'Experimental software'
+  category: 'Experimental Tools'
   image: 'assets/img/slmpy.png'
   repo: 'https://github.com/mffg1993/SLMPy'
+
+- name: 'MHS2300A'
+  description: 'A simple Python module for controlling the MHS2300A signal generator.'
+  type: 'Instrument control'
+  category: 'Experimental Tools'
+  image: 'assets/img/signal.png'
+  repo: 'https://github.com/mffg1993/MHS2300A'
+
+- name: 'Mad Scientist Hacks'
+  description: 'A personal collection of useful code fragments, small utilities, and quick-and-dirty scripts developed to solve recurring problems in the experimental lab.'
+  type: 'Lab utilities & notebooks'
+  category: 'Experimental Tools'
+  repo: 'https://github.com/mffg1993/mad-scientist-hacks'
 
 - name: 'OpticsSetupsDictionary'
   description: 'Reusable Wolfram Language components for creating customizable 2D and 3D optical setups and publication-ready experimental schematics.'
   type: 'Visualization toolkit'
+  category: 'Visualization & Scientific Communication'
   image: 'assets/img/optodicto.png'
   repo: 'https://github.com/mffg1993/OpticsSetupsDictionary'
 
 - name: 'Scientific Plotting Guide'
   description: 'A collection of practical examples and reusable templates for producing clear, reproducible, and publication-ready scientific figures in Python and Wolfram Mathematica.'
   type: 'Guide & templates'
+  category: 'Visualization & Scientific Communication'
   repo: 'https://github.com/mffg1993/scientific-plotting-guide'
 
 - name: 'Knot Figures'
   description: 'Code and resources for generating and visualizing figures related to optical knots and structured-light topology.'
   type: 'Research figures & code'
+  category: 'Visualization & Scientific Communication'
   repo: 'https://github.com/mffg1993/KnotFigures'
-
-- name: 'Mad Scientist Hacks'
-  description: 'A personal collection of useful code fragments, small utilities, and quick-and-dirty scripts developed to solve recurring problems in the experimental lab.'
-  type: 'Lab utilities & notebooks'
-  repo: 'https://github.com/mffg1993/mad-scientist-hacks'
-
-- name: 'Guides for New Students'
-  description: 'Practical notebooks and guides for students starting in an optics lab, including introductory workflows for data analysis and experimental work.'
-  type: 'Educational resource'
-  repo: 'https://github.com/mffg1993/GuidesNewStudents'
 
 - name: 'QR Code Generator'
   description: 'A lightweight browser-based utility for creating QR codes directly from text or URLs, hosted as an interactive GitHub Pages tool.'
   type: 'Interactive web tool'
+  category: 'Web Utilities'
   url: 'https://mffg1993.github.io/qr-generator/'
-
-- name: 'MHS2300A'
-  description: 'A simple Python module for controlling the MHS2300A signal generator.'
-  type: 'Instrument control'
-  image: 'assets/img/signal.png'
-  repo: 'https://github.com/mffg1993/MHS2300A'
 
 design:
 - {name: 'Vector Beam Christmas',
