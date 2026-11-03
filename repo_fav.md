@@ -1,6 +1,7 @@
 ---
 layout: software
-title: "Software"
+title: "Open Tools & Resources"
+description: "Open-source software, interactive tools, numerical resources, and educational material developed by Manuel Ferrer-Garcia."
 ---
 
-This page presents a selection of open-source tools that I have developed and/or maintain to support my research activities. These resources are designed to facilitate simulation, visualization, and experimentation, while also serving as accessible references for the broader community of students and researchers.
+This page collects **open tools and resources** that I develop and maintain for research, teaching, and experimental work in optics. It includes software, interactive web tools, numerical resources, visualization tools, and educational material intended to be useful to students, researchers, and the broader community.
