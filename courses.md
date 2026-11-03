@@ -1,5 +1,7 @@
 ---
 layout: courses
-title: "Notes"
+title: "Teaching & Learning Resources"
+description: "Teaching notes, student guides, tutorials, and learning resources developed by Manuel Ferrer-Garcia."
 ---
-After spending somewhere along 10 years in Physics, I have a decent collection of notes from different topics. Maybe they will be helpful to you... maybe not 
+
+A collection of **teaching and learning resources** developed from my experience in physics, optics, and experimental research. These materials are intended to support students entering the lab, learning new computational tools, or exploring topics in optics and physics.
