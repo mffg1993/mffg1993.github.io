@@ -76,12 +76,16 @@ software:
   repo: 'https://github.com/mffg1993/OpticsSetupsDictionary'
 
 - name: 'Scientific Plotting Guide'
+  image: 'assets/img/plotting-guide.webp'
+  image_fit: 'contain'
   description: 'A collection of practical examples and reusable templates for producing clear, reproducible, and publication-ready scientific figures in Python and Wolfram Mathematica.'
   type: 'Guide & templates'
   category: 'Visualization & Scientific Communication'
   repo: 'https://github.com/mffg1993/scientific-plotting-guide'
 
 - name: 'Knot Figures'
+  image: 'assets/img/knot-figures.webp'
+  image_fit: 'contain'
   description: 'Code and resources for generating and visualizing figures related to optical knots and structured-light topology.'
   type: 'Research figures & code'
   category: 'Visualization & Scientific Communication'
