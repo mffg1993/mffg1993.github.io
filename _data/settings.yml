@@ -88,6 +88,8 @@ software:
   repo: 'https://github.com/mffg1993/KnotFigures'
 
 - name: 'QR Code Generator'
+  image: 'assets/img/qr-generator.svg'
+  image_fit: 'contain'
   description: 'A lightweight browser-based utility for creating QR codes directly from text or URLs, hosted as an interactive GitHub Pages tool.'
   type: 'Interactive web tool'
   category: 'Web Utilities'
